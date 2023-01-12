@@ -6,28 +6,31 @@ using System.Threading.Tasks;
 
 namespace SimpleJeuDeDes
 {
-    internal class Dice
+    public class Dice
     {
         #region Attribute
-        private int value;
-        private int number; 
+        private static int _diceNb = 0;
+        private int _value;
+        private int _number;
         #endregion
-        #region Get value
-        public int GetValue()
+        public Dice()
         {
-            return value;
+            DiceNb++;
         }
-
+        #region Get value
+        /// <summary>
+        /// Value of Dice
+        /// </summary>
+        public int Value { get => _value; }
         #endregion
         #region Get & Set number
-        public int GetNumber()
-        {
-            return value;
-        }
-        public void SetNumber(int number)
-        {
-            this.number = number;
-        }
+        /// <summary>
+        /// Number of the Dice
+        /// </summary>
+        public int Number { get => _number; set => _number = value; }
+        #endregion
+        #region Get & Set DiceNb
+        public static int DiceNb { get => _diceNb; set => _diceNb = value; } 
         #endregion
         #region Method
         /// <summary>
@@ -35,16 +38,17 @@ namespace SimpleJeuDeDes
         /// </summary>
         public void Print()
         {
-            Console.WriteLine($"Valeur : {value}");
+            Console.WriteLine($"Valeur : {_value}");
         }
         /// <summary>
         /// Method to launch Dice
         /// </summary>
-        public void Launch()
+        public int Launch()
         {
             Random valueRandom = new Random();
-            this.value = valueRandom.Next(1, 6);
-        } 
+            this._value = valueRandom.Next(1, 7);
+            return this._value;
+        }
         #endregion
     }
 
