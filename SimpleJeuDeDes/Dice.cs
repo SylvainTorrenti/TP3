@@ -9,9 +9,9 @@ namespace SimpleJeuDeDes
     public class Dice
     {
         #region Attribute
-        private static int _diceNb = 0;
+        private static int _diceNb = 1;
         private int _value;
-        private int _number;
+        private int _number = DiceNb;
         #endregion
         public Dice()
         {
@@ -30,7 +30,7 @@ namespace SimpleJeuDeDes
         public int Number { get => _number; set => _number = value; }
         #endregion
         #region Get & Set DiceNb
-        public static int DiceNb { get => _diceNb; set => _diceNb = value; } 
+        public static int DiceNb { get => _diceNb; set => _diceNb = value; }
         #endregion
         #region Method
         /// <summary>
@@ -38,7 +38,7 @@ namespace SimpleJeuDeDes
         /// </summary>
         public void Print()
         {
-            Console.WriteLine($"Valeur : {_value}");
+            Console.WriteLine($"Le dé {Number} a pour valeur : {Value}");
         }
         /// <summary>
         /// Method to launch Dice
